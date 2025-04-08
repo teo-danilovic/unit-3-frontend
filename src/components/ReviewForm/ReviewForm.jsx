@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const CommentForm = (props) => {
+const ReviewForm = (props) => {
     const [formData, setFormData] = useState({ text: '' });
 
     const handleChange = (evt) => {
@@ -9,13 +9,13 @@ const CommentForm = (props) => {
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        props.handleAddComment(formData);
+        props.handleAddReview(formData);
         setFormData({ text: '' });
     };
 
     return (
         <form onSubmit={handleSubmit}>
-            <label htmlFor='text-input'>Your comment:</label>
+            <label htmlFor='text-input'>Your review:</label>
             <textarea
                 required
                 type='text'
@@ -24,9 +24,9 @@ const CommentForm = (props) => {
                 value={formData.text}
                 onChange={handleChange}
             />
-            <button type='submit'>SUBMIT COMMENT</button>
+            <button type='submit'>SUBMIT REVIEW</button>
         </form>
     );
 };
 
-export default CommentForm;
+export default ReviewForm;

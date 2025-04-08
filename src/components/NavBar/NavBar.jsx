@@ -1,6 +1,5 @@
 import { useContext } from "react"
 import { Link } from "react-router"
-
 import { UserContext } from "../../contexts/UserContext"
 
 const NavBar = () => {
@@ -8,7 +7,6 @@ const NavBar = () => {
 
   const handleSignOut = () => {
     localStorage.removeItem('token')
-
     setUser(null)
   }
 
@@ -20,13 +18,14 @@ const NavBar = () => {
             Welcome, {user.username}
           </li>
           <li>
-            <Link to='/'><Home></Home></Link>
+          <Link to='/'>Home</Link>
           </li>
           <li>
-            <Link to='/hoots'>Hoots</Link>
+            <Link to='/movies'>Movies</Link>
           </li>
           <li>
-            <Link to='/hoots/new'>New Hoot</Link>
+            <Link to='/movies/new'>New Movie</Link>
+          </li>
           <li>
             <Link to='/' onClick={handleSignOut}>Sign Out</Link>
           </li>

@@ -1,4 +1,4 @@
-const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/hoots`;
+const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/movies`;
 
 
 
@@ -7,15 +7,20 @@ const index = async () => {
         const res = await fetch(BASE_URL, {
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         });
+
+        if (!res.ok) { // Check if response is not OK (status code is not 2xx)
+            throw new Error(`HTTP error! Status: ${res.status}`);
+        }
+
         return res.json();
     } catch (error) {
-        console.log(error);
+        console.log('Error fetching movies:', error.message); // Log detailed error message
     }
 };
 
-const show = async (hootId) => {
+const show = async (movieId) => {
     try {
-        const res = await fetch(`${BASE_URL}/${hootId}`, {
+        const res = await fetch(`${BASE_URL}/${movieId}`, {
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         });
         return res.json();
@@ -24,7 +29,7 @@ const show = async (hootId) => {
     }
 };
 
-const create = async (hootFormData) => {
+const create = async (movieFormData) => {
     try {
         const res = await fetch(BASE_URL, {
             method: 'POST',
@@ -32,7 +37,7 @@ const create = async (hootFormData) => {
                 Authorization: `Bearer ${localStorage.getItem('token')}`,
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(hootFormData),
+            body: JSON.stringify(movieFormData),
         });
         return res.json();
     } catch (error) {
@@ -41,15 +46,15 @@ const create = async (hootFormData) => {
 };
 
 
-const createComment = async (hootId, commentFormData) => {
+const createReview = async (movieId, reviewFormData) => {
     try {
-        const res = await fetch(`${BASE_URL}/${hootId}/comments`, {
+        const res = await fetch(`${BASE_URL}/${movieId}/reviews`, {
             method: 'POST',
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`,
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(commentFormData),
+            body: JSON.stringify(reviewFormData),
         });
         return res.json();
     } catch (error) {
@@ -57,9 +62,9 @@ const createComment = async (hootId, commentFormData) => {
     }
 };
 
-const deleteHoot = async (hootId) => {
+const deleteMovie = async (movieId) => {
     try {
-        const res = await fetch(`${BASE_URL}/${hootId}`, {
+        const res = await fetch(`${BASE_URL}/${movieId}`, {
             method: 'DELETE',
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -72,15 +77,15 @@ const deleteHoot = async (hootId) => {
 };
 
 
-async function update(hootId, hootFormData) {
+async function update(movieId, movieFormData) {
     try {
-        const res = await fetch(`${BASE_URL}/${hootId}`, {
+        const res = await fetch(`${BASE_URL}/${movieId}`, {
             method: 'PUT',
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`,
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(hootFormData),
+            body: JSON.stringify(movieFormData),
         });
         return res.json();
     } catch (error) {
@@ -92,8 +97,8 @@ export {
     index,
     show,
     create,
-    createComment,
-    deleteHoot,
+    createReview,
+    deleteMovie,
     update,
 };
 
