@@ -8,7 +8,7 @@ PlotTwist
 A community for people to upload movies they like and have other people share their reviews and opinions on them. 
 
 
-Link to deployed App: 
+Link to deployed App: https://td-plottwist.netlify.app/ 
 
 
 Link to back-end repository: https://github.com/teo-danilovic/unit-3-backend 
