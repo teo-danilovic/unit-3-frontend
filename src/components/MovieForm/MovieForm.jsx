@@ -70,18 +70,19 @@ const MovieForm = (props) => {
                     value={formData.category}
                     onChange={handleChange}
                 >
-                    <option value='Action'>News</option>
+                    <option value='Action'>Action</option>
                     <option value='Comedy'>Games</option>
                     <option value='Drama'>Music</option>
-                    <option value='Fantasy'>Movies</option>
-                    <option value='Horror'>Sports</option>
-                    <option value='Mystery'>Television</option>
-                    <option value='Romance'>Sports</option>
-                    <option value='Thriller'>Sports</option>
-                    <option value='Western'>Sports</option>
-                    <option value='Sci-Fi'>Sports</option>
-                    <option value='Documentary'>Sports</option>
-                    <option value='Animation'>Sports</option>
+                    <option value='Fantasy'>Fantasy</option>
+                    <option value='Horror'>Horror</option>
+                    <option value='Mystery'>Mystery</option>
+                    <option value='Romance'>Romance</option>
+                    <option value='Thriller'>Thriller</option>
+                    <option value='Western'>Western</option>
+                    <option value='Sci-Fi'>Sci-Fi</option>
+                    <option value='Documentary'>Documentary</option>
+                    <option value='Animation'>Animation</option>
+                    
 
 
                 </select>

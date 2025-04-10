@@ -1,23 +1,32 @@
 #root {
-  max-width: 1280px;
+  max-width: 1080px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 3rem 2rem;
   text-align: center;
+  background: rgba(18, 18, 18, 0.85);
+  border-radius: 1.2rem;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  color: #e0e0e0;
 }
 
+/* Logo Styling */
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+  height: 5.5em;
+  padding: 1.25em;
+  will-change: filter, transform;
+  transition: filter 300ms, transform 0.3s ease;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 1em rgba(212, 175, 55, 0.5));
+  transform: scale(1.05);
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 1.2em rgba(178, 34, 34, 0.6));
 }
 
+/* Logo Spin Animation */
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -26,17 +35,32 @@
     transform: rotate(360deg);
   }
 }
-
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
 }
 
+/* Card Layout */
 .card {
-  padding: 2em;
+  padding: 2rem;
+  background-color: rgba(26, 26, 26, 0.92);
+  border-radius: 1rem;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  margin-bottom: 2rem;
+  border: 1px solid #2a2a2a;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 30px rgba(178, 34, 34, 0.25);
 }
 
+/* Footer / Docs Styling */
 .read-the-docs {
-  color: #888;
+  color: #999;
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-top: 2.5rem;
+  text-shadow: 0 1px 2px #000;
 }
